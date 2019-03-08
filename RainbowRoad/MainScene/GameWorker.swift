@@ -7,3 +7,39 @@
 //
 
 import Foundation
+import UIKit
+import GameKit
+
+protocol GameWorkerProtocol{
+    func direction(for track: Int) -> Bool
+    func velocity(for index: Int) -> CGFloat
+    func generateTrackData(with numberOfTracks: Int)
+}
+
+class GameWorker: GameWorkerProtocol{
+    private let trackVelocities = [180, 200, 250]
+    private var velocityArray = [CGFloat]()
+    private var directionArray = [Bool]()
+
+    
+    func direction(for track: Int) -> Bool{
+        guard directionArray.count > track else {return false}
+        return directionArray[track]
+    }
+    
+    func velocity(for index: Int) -> CGFloat{
+        guard velocityArray.count > index else {return 0}
+        return velocityArray[index]
+    }
+    
+    func generateTrackData(with numberOfTracks: Int){
+        guard numberOfTracks > 0 else { return }
+        for _ in 0...numberOfTracks{
+            let randomNumberVelocity = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
+            velocityArray.append(CGFloat(trackVelocities[randomNumberVelocity]))
+            directionArray.append(GKRandomSource.sharedRandom().nextBool())
+        }
+    }
+    
+    
+}

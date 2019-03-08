@@ -18,7 +18,10 @@ class GameViewController: UIViewController {
         if let view = view as? SKView{
             if let scene = SKScene(fileNamed: "GameScene"){
                 scene.scaleMode = .aspectFit
+                view.showsFPS = true
+                view.showsNodeCount = true
                 view.presentScene(scene)
+                
             }
         }
     }

@@ -17,6 +17,18 @@
 		262BCFBB222FB98300240FA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 262BCFB9222FB98300240FA5 /* LaunchScreen.storyboard */; };
 		262BCFC6222FB98300240FA5 /* RainbowRoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262BCFC5222FB98300240FA5 /* RainbowRoadTests.swift */; };
 		262BCFD1222FB98300240FA5 /* RainbowRoadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262BCFD0222FB98300240FA5 /* RainbowRoadUITests.swift */; };
+		26CC318822310A26001FA388 /* Pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26CC318722310A26001FA388 /* Pulse.sks */; };
+		26CC318A22310A81001FA388 /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26CC318922310A81001FA388 /* fireworks.sks */; };
+		26CC318D22310CFC001FA388 /* move.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CC318C22310CFC001FA388 /* move.wav */; };
+		26CC319A223215D2001FA388 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC3199223215D2001FA388 /* GameInteractor.swift */; };
+		26CC319C223215DC001FA388 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC319B223215DC001FA388 /* GamePresenter.swift */; };
+		26CC319E223215ED001FA388 /* GameWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC319D223215ED001FA388 /* GameWorker.swift */; };
+		26CC31A022321718001FA388 /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC319F22321718001FA388 /* GameModels.swift */; };
+		26CC31A3223263B1001FA388 /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CC319522321585001FA388 /* fail.wav */; };
+		26CC31A4223263B2001FA388 /* levelCompleted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CC319622321585001FA388 /* levelCompleted.wav */; };
+		26CC31A5223263B5001FA388 /* levelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CC319722321585001FA388 /* levelUp.wav */; };
+		26CC31A6223263B8001FA388 /* powerUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CC319422321585001FA388 /* powerUp.wav */; };
+		26CC31A7223263BB001FA388 /* MenuHighscoreMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26CC319322321585001FA388 /* MenuHighscoreMusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,18 @@
 		262BCFCC222FB98300240FA5 /* RainbowRoadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowRoadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		262BCFD0222FB98300240FA5 /* RainbowRoadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowRoadUITests.swift; sourceTree = "<group>"; };
 		262BCFD2222FB98300240FA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26CC318722310A26001FA388 /* Pulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pulse.sks; sourceTree = "<group>"; };
+		26CC318922310A81001FA388 /* fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireworks.sks; sourceTree = "<group>"; };
+		26CC318C22310CFC001FA388 /* move.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = move.wav; sourceTree = "<group>"; };
+		26CC319322321585001FA388 /* MenuHighscoreMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MenuHighscoreMusic.mp3; sourceTree = "<group>"; };
+		26CC319422321585001FA388 /* powerUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerUp.wav; sourceTree = "<group>"; };
+		26CC319522321585001FA388 /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fail.wav; sourceTree = "<group>"; };
+		26CC319622321585001FA388 /* levelCompleted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelCompleted.wav; sourceTree = "<group>"; };
+		26CC319722321585001FA388 /* levelUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelUp.wav; sourceTree = "<group>"; };
+		26CC3199223215D2001FA388 /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		26CC319B223215DC001FA388 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		26CC319D223215ED001FA388 /* GameWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWorker.swift; sourceTree = "<group>"; };
+		26CC319F22321718001FA388 /* GameModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +127,11 @@
 		262BCFA9222FB98100240FA5 /* RainbowRoad */ = {
 			isa = PBXGroup;
 			children = (
+				26CC3198223215A0001FA388 /* MainScene */,
+				26CC31922232156D001FA388 /* Particles */,
+				26CC318B22310CEF001FA388 /* Sounds */,
 				262BCFAA222FB98100240FA5 /* AppDelegate.swift */,
-				262BCFAC222FB98100240FA5 /* GameScene.sks */,
 				262BCFAE222FB98100240FA5 /* Actions.sks */,
-				262BCFB0222FB98100240FA5 /* GameScene.swift */,
-				262BCFB2222FB98100240FA5 /* GameViewController.swift */,
 				262BCFB4222FB98100240FA5 /* Main.storyboard */,
 				262BCFB7222FB98300240FA5 /* Assets.xcassets */,
 				262BCFB9222FB98300240FA5 /* LaunchScreen.storyboard */,
@@ -132,6 +156,43 @@
 				262BCFD2222FB98300240FA5 /* Info.plist */,
 			);
 			path = RainbowRoadUITests;
+			sourceTree = "<group>";
+		};
+		26CC318B22310CEF001FA388 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				26CC319522321585001FA388 /* fail.wav */,
+				26CC319622321585001FA388 /* levelCompleted.wav */,
+				26CC319722321585001FA388 /* levelUp.wav */,
+				26CC319322321585001FA388 /* MenuHighscoreMusic.mp3 */,
+				26CC319422321585001FA388 /* powerUp.wav */,
+				26CC318C22310CFC001FA388 /* move.wav */,
+			);
+			name = Sounds;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		26CC31922232156D001FA388 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				26CC318722310A26001FA388 /* Pulse.sks */,
+				26CC318922310A81001FA388 /* fireworks.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		26CC3198223215A0001FA388 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				262BCFB2222FB98100240FA5 /* GameViewController.swift */,
+				262BCFB0222FB98100240FA5 /* GameScene.swift */,
+				262BCFAC222FB98100240FA5 /* GameScene.sks */,
+				26CC3199223215D2001FA388 /* GameInteractor.swift */,
+				26CC319B223215DC001FA388 /* GamePresenter.swift */,
+				26CC319D223215ED001FA388 /* GameWorker.swift */,
+				26CC319F22321718001FA388 /* GameModels.swift */,
+			);
+			path = MainScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +299,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CC318A22310A81001FA388 /* fireworks.sks in Resources */,
 				262BCFB6222FB98100240FA5 /* Main.storyboard in Resources */,
 				262BCFAD222FB98100240FA5 /* GameScene.sks in Resources */,
+				26CC31A4223263B2001FA388 /* levelCompleted.wav in Resources */,
+				26CC318822310A26001FA388 /* Pulse.sks in Resources */,
+				26CC31A7223263BB001FA388 /* MenuHighscoreMusic.mp3 in Resources */,
+				26CC31A6223263B8001FA388 /* powerUp.wav in Resources */,
 				262BCFB8222FB98300240FA5 /* Assets.xcassets in Resources */,
+				26CC318D22310CFC001FA388 /* move.wav in Resources */,
+				26CC31A3223263B1001FA388 /* fail.wav in Resources */,
+				26CC31A5223263B5001FA388 /* levelUp.wav in Resources */,
 				262BCFBB222FB98300240FA5 /* LaunchScreen.storyboard in Resources */,
 				262BCFAF222FB98100240FA5 /* Actions.sks in Resources */,
 			);
@@ -267,8 +336,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CC319A223215D2001FA388 /* GameInteractor.swift in Sources */,
 				262BCFB1222FB98100240FA5 /* GameScene.swift in Sources */,
 				262BCFB3222FB98100240FA5 /* GameViewController.swift in Sources */,
+				26CC319E223215ED001FA388 /* GameWorker.swift in Sources */,
+				26CC31A022321718001FA388 /* GameModels.swift in Sources */,
+				26CC319C223215DC001FA388 /* GamePresenter.swift in Sources */,
 				262BCFAB222FB98100240FA5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,11 +520,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W3RCCUG568;
 				INFOPLIST_FILE = RainbowRoad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adriana.RainbowRoad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adriana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,11 +539,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W3RCCUG568;
 				INFOPLIST_FILE = RainbowRoad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adriana.RainbowRoad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adriana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

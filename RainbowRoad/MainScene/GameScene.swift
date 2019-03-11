@@ -14,6 +14,7 @@ protocol GameDisplayProtocol : class {
     func displayPlayer(with viewModel: Game.ViewModel.GameObject)
     func displayEnemy(with shape: SKShapeNode, in track: Int)
     func displayPowerUp(with sprite: SKSpriteNode, in track: Int)
+    func displayGameOverScene(with currentScore: Int, and highestScore: Int)
 }
 
 class GameScene: SKScene, GameDisplayProtocol {
@@ -29,7 +30,9 @@ class GameScene: SKScene, GameDisplayProtocol {
     private let targetCategory: UInt32 = 0x1 << 2
     private let powerUpCategory: UInt32 = 0x1 << 3
     
-    private var remainingTime = 60{
+    private var router: GameRoutingProtocol?
+    
+    private var remainingTime = 10{
         didSet{
             timeLabel?.text = "TIME: \(remainingTime)"
         }
@@ -43,6 +46,7 @@ class GameScene: SKScene, GameDisplayProtocol {
     
     private var timeLabel : SKLabelNode?
     private var scoreLabel : SKLabelNode?
+    private var pauseButton: SKSpriteNode?
     
     var sceneSize: CGSize{
         return size
@@ -63,6 +67,10 @@ class GameScene: SKScene, GameDisplayProtocol {
         interactor.presenter = presenter
         self.interactor = interactor
         
+        let gameRouter = GameRouter()
+        gameRouter.view = view
+        self.router = gameRouter
+        
         if let musicUrl = Bundle.main.url(forResource: "background", withExtension: "wav"){
             let soundNode = SKAudioNode(url: musicUrl)
             addChild(soundNode)
@@ -76,6 +84,7 @@ class GameScene: SKScene, GameDisplayProtocol {
         generateTracks()
         displayTarget()
         guard let playerPosition = tracksArray.first?.position else {return}
+        pauseButton = childNode(withName: "pause") as? SKSpriteNode
         interactor?.configureGame(with: playerPosition, with: tracksArray.count)
         setupTimer()
     }
@@ -104,6 +113,7 @@ class GameScene: SKScene, GameDisplayProtocol {
         timeLabel = childNode(withName: "time") as? SKLabelNode
         timeLabel?.run(timeAction)
         scoreLabel = childNode(withName: "score") as? SKLabelNode
+        scoreLabel?.zPosition = 2
     }
     
     
@@ -131,6 +141,10 @@ class GameScene: SKScene, GameDisplayProtocol {
         let trackPosition = tracksArray[track].position
         sprite.position.x = trackPosition.x
         addChild(sprite)
+    }
+    
+    func displayGameOverScene(with currentScore: Int, and highestScore: Int) {
+        router?.routeToGameOverScene(with: currentScore, and: highestScore)
     }
     
     //Actions
@@ -192,6 +206,11 @@ class GameScene: SKScene, GameDisplayProtocol {
         }
     }
     
+    private func goToGameOver(){
+        self.run(SKAction.playSoundFileNamed("levelCompleted.wav", waitForCompletion: true))
+        interactor?.saveScore(with: score)
+    }
+    
     //overides
     private func getNodeForTouch(touch: UITouch?) -> SKNode?{
         let location = touch?.previousLocation(in: self)
@@ -200,6 +219,12 @@ class GameScene: SKScene, GameDisplayProtocol {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let node = getNodeForTouch(touch: touches.first) {
+            if node.name == "pause"{
+                guard view != nil else {return}
+                view!.isPaused = !view!.isPaused
+                return
+            }
+            
             let direction = Direction(rawValue: node.name ?? "")
             switch direction{
             case .up?:
@@ -233,6 +258,9 @@ class GameScene: SKScene, GameDisplayProtocol {
         }
         
         timeLabel?.fontColor = remainingTime <= 5 ? UIColor.red : UIColor.white
+        guard remainingTime <= 0 else {return}
+        
+        goToGameOver()
     }
 }
 

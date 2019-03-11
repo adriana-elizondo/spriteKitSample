@@ -17,6 +17,7 @@ protocol GameBusinessLogic{
     func velocityForPlayer(in track: Int) -> CGVector
     func spawnEnemies()
     func pauseGame()
+    func saveScore(with score: Int)
 }
 
 class GameInteractor: GameBusinessLogic{
@@ -44,7 +45,7 @@ class GameInteractor: GameBusinessLogic{
         powerUp.physicsBody?.collisionBitMask = 0
         
         let up = worker.direction(for: track + 1)
-        powerUp.position.y = up ? 0 : UIScreen.main.bounds.height 
+        powerUp.position.y = up ? 0 : UIScreen.main.bounds.height
         powerUp.physicsBody?.velocity = velocityForPlayer(in: track)
         
         presenter?.presentPowerUp(powerup: powerUp, in: track)
@@ -97,5 +98,11 @@ class GameInteractor: GameBusinessLogic{
     }
     
     func pauseGame() { }
+    
+    func saveScore(with score: Int){
+        worker.saveScore(score: score) { (highest) in
+            self.presenter?.presentGameOverScene(with: score, and: highest)
+        }
+    }
 
 }

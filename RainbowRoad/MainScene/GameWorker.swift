@@ -14,6 +14,7 @@ protocol GameWorkerProtocol{
     func direction(for track: Int) -> Bool
     func velocity(for index: Int) -> CGFloat
     func generateTrackData(with numberOfTracks: Int)
+    func saveScore(score: Int, with completion: @escaping (_ highestScore: Int) -> Void)
 }
 
 class GameWorker: GameWorkerProtocol{
@@ -41,5 +42,8 @@ class GameWorker: GameWorkerProtocol{
         }
     }
     
-    
+    func saveScore(score: Int, with completion: @escaping (_ highestScore: Int) -> Void){
+        PersistingHelper.persistCurrentScore(with: score)
+        completion(PersistingHelper.highestScore())
+    }
 }

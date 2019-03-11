@@ -14,6 +14,7 @@ protocol GamePresenterLogic{
     func presentPlayer(in position: CGPoint)
     func presentEnemy(enemy: SKShapeNode?, with direction: Direction, and velocity: CGFloat, in track: Int)
     func presentPowerUp(powerup: SKSpriteNode, in track: Int)
+    func presentGameOverScene(with currentScore: Int, and highest: Int)
     func removeOffScreenEnemies()
 }
 
@@ -57,5 +58,9 @@ class GamePresenter: GamePresenterLogic{
                 }
             }
         }
+    }
+    
+    func presentGameOverScene(with currentScore: Int, and highest: Int){
+        scene?.displayGameOverScene(with: currentScore, and: highest)
     }
 }

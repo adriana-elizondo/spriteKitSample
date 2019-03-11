@@ -1,26 +1,27 @@
 //
-//  GameOverScene.swift
-//  ACGame
+//  GameViewController.swift
+//  RainbowRoad
 //
-//  Created by Brian Advent on 16.06.17.
-//  Copyright © 2017 Brian Advent. All rights reserved.
+//  Created by Adriana Elizondo on 2019/3/6.
+//  Copyright © 2019 adriana. All rights reserved.
 //
 
 import SpriteKit
 
 class GameOverScene : SKScene {
-    
-    var lastScoreLabel:SKLabelNode?
-    var bestScoreLabel:SKLabelNode?
-    
-    var playButton:SKSpriteNode?
-    
-    var backgroundMusic: SKAudioNode!
+    var currentScore: Int = 0
+    var bestScore: Int = 0
+    private var lastScoreLabel:SKLabelNode?
+    private var bestScoreLabel:SKLabelNode?
+    private var playButton:SKSpriteNode?
+    private var backgroundMusic: SKAudioNode!
     
     override func didMove(to view: SKView) {
         lastScoreLabel = self.childNode(withName: "lastScoreLabel") as? SKLabelNode
+        lastScoreLabel?.text = "\(currentScore)"
+        
         bestScoreLabel = self.childNode(withName: "bestScoreLabel") as? SKLabelNode
-    
+        bestScoreLabel?.text = "\(bestScore)"
         
         playButton = self.childNode(withName: "startButton") as? SKSpriteNode
         
@@ -38,7 +39,11 @@ class GameOverScene : SKScene {
             let node = self.atPoint(pos)
             
             if node == playButton {
-            
+                let transition = SKTransition.fade(withDuration: 1)
+                if let gameScene = SKScene(fileNamed: "GameScene"){
+                    gameScene.scaleMode = .aspectFill
+                    view?.presentScene(gameScene, transition: transition)
+                }
             }
         }
     }
